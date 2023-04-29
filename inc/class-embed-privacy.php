@@ -2218,7 +2218,8 @@ class Embed_Privacy {
 		 */
 		$subline = apply_filters( 'embed_privacy_opt_out_subline', '<p>' . esc_html( $attributes['subline'] ) . '</p>' . PHP_EOL, $attributes );
 		
-		$output = '<div class="embed-privacy-opt-out" data-show-all="' . $attributes['show_all'] . '">' . PHP_EOL . $headline . $subline;
+		$output  = '<div class="embed-privacy-opt-out" data-show-all="' . $attributes['show_all'] . '">' . PHP_EOL . $headline . $subline;
+		$output .= '<ol>' . PHP_EOL;
 		
 		foreach ( $embed_providers as $provider ) {
 			if ( $is_javascript_detection ) {
@@ -2243,7 +2244,7 @@ class Embed_Privacy {
 			$output .= '</span>' . PHP_EOL;
 		}
 		
-		$output .= '</p>' . PHP_EOL . '</div>' . PHP_EOL;
+		$output .= '</ol>' . PHP_EOL . '</div>' . PHP_EOL;
 		
 		return $output;
 	}
