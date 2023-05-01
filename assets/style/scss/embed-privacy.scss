@@ -141,11 +141,14 @@
 }
 
 // shortcode
-.embed-privacy-opt-out > ol,
-.embed-privacy-opt-out > ol > li{
-	list-style: none;
-	margin-left: 0;
+.embed-privacy-opt-out {
+	& > ol,
+	& > ol > li {
+		list-style: none;
+		margin-left: 0;		
+	}
 }
+
 .embed-privacy-provider {
 	&.is-hidden {
 		display: none;
