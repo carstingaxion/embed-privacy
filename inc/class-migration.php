@@ -205,14 +205,17 @@ class Migration {
 			return;
 		}
 		
+		$version = $this->get_option( 'migrate_version', 'initial' );
+		if ( $version === $this->version ) {
+			return;
+		}
+
 		// start the migration
 		$this->update_option( 'is_migrating', time() );
 		$this->update_option( 'migration_count', (int) $this->get_option( 'migration_count' ) + 1 );
 		
 		// load textdomain early for migrations
 		load_plugin_textdomain( 'embed-privacy', false, dirname( plugin_basename( Embed_Privacy::get_instance()->plugin_file ) ) . '/languages' );
-		
-		$version = $this->get_option( 'migrate_version', 'initial' );
 		
 		// get legacy network option
 		if ( $version === 'initial' && is_multisite() ) {
