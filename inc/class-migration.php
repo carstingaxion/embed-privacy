@@ -196,6 +196,11 @@ class Migration {
 			return;
 		}
 		
+		$version = $this->get_option( 'migrate_version', 'initial' );
+		if ( $version === $this->version ) {
+			return;
+		}		
+
 		// check for active migration
 		if (
 			is_numeric( $this->get_option( 'is_migrating' ) )
@@ -204,12 +209,6 @@ class Migration {
 		) {
 			return;
 		}
-		
-		$version = $this->get_option( 'migrate_version', 'initial' );
-		if ( $version === $this->version ) {
-			return;
-		}
-
 		// start the migration
 		$this->update_option( 'is_migrating', time() );
 		$this->update_option( 'migration_count', (int) $this->get_option( 'migration_count' ) + 1 );
