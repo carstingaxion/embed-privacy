@@ -8,7 +8,7 @@
 	"author": "Epiphyt",
 	"license": "GPL-2.0",
 	"devDependencies": {
-		"@wordpress/scripts": "^22.0",
+		"@wordpress/scripts": "^31.3",
 		"extract-loader": "^5.1.0",
 		"file-loader": "^6.2.0",
 		"ignore-emit-webpack-plugin": "^2.0.6",
